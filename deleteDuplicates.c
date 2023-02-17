@@ -23,3 +23,10 @@ ListNode* deleteDuplicates(ListNode* head) {
 
     return head;
 }
+
+// 递归写法
+ListNode* deleteDuplicatesRecursion(ListNode* head) {
+    if (head == NULL || head->next == NULL) return head;
+    head->next = deleteDuplicatesRecursion(head->next);
+    return head->val == head->next->val ? head->next : head;
+}
