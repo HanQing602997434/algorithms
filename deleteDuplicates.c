@@ -6,6 +6,7 @@ struct ListNode {
     ListNode() : val(0), mext(NULL) {}
 }
 
+// 循环写法
 ListNode* deleteDuplicates(ListNode* head) {
     if (head == NULL)
         return head;
