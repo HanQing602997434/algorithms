@@ -24,6 +24,44 @@ string getString(vector<string>& v) {
     return ret;
 }
 
+string decodeString(string s) {
+    vector<string> stk;
+    size_t ptr = 0;
+
+    while (ptr < s.size()) {
+        char cur = s[ptr];
+        if (isdigit(cur)) {
+            // 获取一个数字入栈
+            string digits = getDigits(s, ptr);
+            stk.push_back(digits);
+        }
+        else if (isalpha(cur) || cur == '[') {
+            // 获取一个字母入栈
+            stk.push_back(1, s[ptr++]);
+        }
+        else {
+            ++ptr;
+            vector<string> sub;
+            while (stk.back() != "[") {
+                sub.push_back(stk.back());
+                stk.pop_back();
+            }
+            reverse(sub.begin(), sub.end());
+            // 左括号出栈
+            stk.pop_back();
+            // 此时栈顶为数字
+            int repTime = stoi(stk.back());
+            stk.pop_back();
+            string t, o = getString(sub);
+            // 构造字符串
+            while (repTime--) t += o;
+            stk.push_back(t);
+        }
+    }
+
+    return getString(stk);
+}
+
 class Solution {
 public:
     string decodeString(string s) {
