@@ -8,6 +8,22 @@
 
 此外，你可以认为原始数据不包含数字，所有的数字只表示重复的次数 k ，例如不会出现像 3a 或 2[4] 的输入。*/
 
+string getDigits(string& s, size_t& ptr) {
+    string ret = "";
+    while (isdigit(s[ptr])) {
+        ret.push_back(s[ptr++]);
+    }
+    return ret;
+}
+
+string getString(vector<string>& v) {
+    string ret = "";
+    for (const auto& s : v) {
+        ret += s;
+    }
+    return ret;
+}
+
 class Solution {
 public:
     string decodeString(string s) {
@@ -35,10 +51,10 @@ public:
                 for (int j = 0; j < times; ++j) {
                     strs.top() += res;
                 }
-                res = strs.top();
+                res = strs.top(); 
             }
         }
 
         return res;
     }
-};
+}; 
