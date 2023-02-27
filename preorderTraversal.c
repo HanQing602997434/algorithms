@@ -20,3 +20,18 @@ void accessTree(TreeNode* root, vector<int>& res) {
     accessTree(root->left);
     accessTree(root->right);
 }
+
+vector<int> preorderTraversalWithLoop(TreeNode* root) {
+    vector<int> res;
+    stack<TreeNode*> stk;
+    while (root != NULL || !stk.empty()) {
+        while (root != NULL) {
+            res.push_back(root->val);
+            stk.push(root);
+            root = root->left;
+        }
+        root = stk.top();
+        stk.pop();
+        root = root->right;
+    }
+}
