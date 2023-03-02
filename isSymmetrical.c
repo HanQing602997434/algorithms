@@ -31,3 +31,41 @@ bool deepCheck(TreeNode* left, TreeNode* right) {
     // 以及比较 左节点的右孩子 和 右节点的左孩子
     return deepCheck(left->left, right->right) && deepCheck(left->right, right->left);
 }
+
+bool isSymmetricalWithLoop(TreeNode* root) {
+    if (root == NULL) {
+        return false;
+    }
+
+    queue<TreeNode*> q;
+    u = root->left;
+    v = root->right;
+    if (u == NULL && v == NULL) {
+        return true;
+    }
+
+    q.push(u);
+    q.push(v);
+
+    while (!q.empty()) {
+        u = q.front();
+        q.pop();
+        v = q.front();
+        q.pop();
+
+        if (u == NULL  && v == NULL) {
+            continue;
+        }
+
+        if ((u == NULL || v == NULL) || (u.val != v.val)) {
+            return false;
+        }
+
+        q.push(u->left);
+        q.push(v->right);
+        q.push(u->right);
+        q.push(v.left);
+    }
+
+    return true;
+}
