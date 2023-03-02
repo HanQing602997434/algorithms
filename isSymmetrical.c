@@ -57,14 +57,14 @@ bool isSymmetricalWithLoop(TreeNode* root) {
             continue;
         }
 
-        if ((u == NULL || v == NULL) || (u.val != v.val)) {
+        if ((u == NULL || v == NULL) || (u->val != v->val)) {
             return false;
         }
 
         q.push(u->left);
         q.push(v->right);
         q.push(u->right);
-        q.push(v.left);
+        q.push(v->left);
     }
 
     return true;
