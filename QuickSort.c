@@ -30,3 +30,6 @@ void QuickSort(vector<int>& nums, int start, int end) {
         QuickSort(nums, mid + 1, end);
     }
 }
+
+// 快速排序为了提高效率，有时会提供双轴的方法，就是选取两个基准数，效率经过测试会提高10%
+// 快速排序在元素个数小于一定值的时候，会采用插入排序。递归次数过多会采用堆排序。
