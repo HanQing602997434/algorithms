@@ -10,4 +10,4 @@
 堆排序            O(nlogn)        O(nlogn)    O(nlogn)        O(1)       不稳定       是
 计数排序           O(n+k)          O(n+k)      O(n+k)         O(k)        稳定        否    
 桶排序             O(n+c)           O(n)       O(n^2)        O(n+k)       稳定        否
-基数排序
+基数排序           O(n*k)          O(n*k)      O(n*k)        O(n+k)       稳定        否
