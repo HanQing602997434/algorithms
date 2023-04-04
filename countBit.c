@@ -8,3 +8,8 @@ vector<int> countBits(int num) {
 
     return bits;
 }
+
+// 利用奇偶性解决
+vector<int> countBits(int num) {
+    vector<int> bits;
+}
